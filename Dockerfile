@@ -1,4 +1,4 @@
-FROM php:7.2.0-apache
+FROM php:7.1.12-apache
 MAINTAINER Ben Lamptey <ben@codepulse.co.uk> # install the PHP extensions we need - Help from a.contreras@catchdigital.com
 
 RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libpq-dev libldap2-dev mysql-client \
