@@ -27,6 +27,8 @@ RUN { \
         echo 'opcache.enable_cli=1'; \
     } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
+RUN a2enmod rewrite
+
 WORKDIR /var/www/html
 
 RUN usermod -u 1000 www-data
