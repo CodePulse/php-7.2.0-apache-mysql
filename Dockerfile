@@ -1,6 +1,8 @@
 FROM php:7.1.12-apache
 MAINTAINER Ben Lamptey <ben@codepulse.co.uk> # install the PHP extensions we need - Help from a.contreras@catchdigital.com
 
+RUN a2enmod rewrite
+
 RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libpq-dev libldap2-dev mysql-client \
     && rm -rf /var/lib/apt/lists/* \
     && docker-php-ext-configure gd --with-png-dir=/usr --with-jpeg-dir=/usr \
@@ -27,8 +29,6 @@ RUN { \
         echo 'opcache.enable_cli=1'; \
     } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
-RUN a2enmod rewrite
-RUN service apache2 restart
 
 WORKDIR /var/www/html
 
