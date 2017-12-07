@@ -28,6 +28,7 @@ RUN { \
     } > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
 RUN a2enmod rewrite
+RUN service apache2 restart
 
 WORKDIR /var/www/html
 
